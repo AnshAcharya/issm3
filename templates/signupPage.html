@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="./static/global.css">
+</head>
+<body>
+<div class="container">
+    <h2>Sign Up</h2>
+    <form id="signupForm" action="/signup" method="post" >
+        <input type="text" name="username" placeholder="Username" required autocomplete="off">
+        <input type="email" name="email" placeholder="Email" required autocomplete="off">
+        <div class="eye-pass">
+            <input type="password" name="password" id="passwordInput" placeholder="Password" required autocomplete="off">
+            <button type="button" class="eye-button" id="togglePasswordButton" onclick="togglePassword('passwordInput', 'togglePasswordButton')"></button>
+        </div>
+        <div class="eye-pass">
+            <input type="password" name="confirmPassword" id="confirmPasswordInput" placeholder="Confirm Password" required autocomplete="off">
+            <button type="button" class="eye-button" id="toggleConfirmPasswordButton" onclick="togglePassword('confirmPasswordInput', 'toggleConfirmPasswordButton')"></button>
+        </div>
+        <!-- <input type="text" name="dob" placeholder="Date of Birth (DD-MM-YYYY)" required autocomplete="off"> -->
+        <p style="color : red;">{{ message }}</p>
+        <button type="submit" >Sign up</button>
+    </form>
+</div>
+<script>
+    function togglePassword(inputId, buttonId) {
+        const passwordInput = document.getElementById(inputId);
+        const button = document.getElementById(buttonId);
+
+        const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+        passwordInput.setAttribute("type", type);
+
+        if (type === "password") {
+            button.style.backgroundImage = "url('eye.svg')";
+        } else {
+            button.style.backgroundImage = "url('eye-off.svg')";
+        }
+    }
+</script>
+</body>
+</html>

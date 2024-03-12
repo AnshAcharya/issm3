@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="./static/global.css">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}"> -->
+</head>
+
+<body>
+    <h1 class="h1">Welcome to our Slideshow App!</h1>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm" action="#" method="POST">
+            <input type="text" name="username" placeholder="Username" required autocomplete="off">
+            <div class="eye-pass">
+                <input type="password" name="password" id="passwordInput" placeholder="Password" required autocomplete="off">
+                <button type="button" class="eye-button" id="togglePasswordButton" onclick="togglePassword()"></button>
+            </div>
+            <button type="submit" >Login</button>
+            <p style="color:red;">{{ message }}</p>
+        </form>
+        <div class="links">
+            <a href="/signup">Don't have an account? Sign Up</a>
+            <!-- <a href="#forgot">Forgot Password</a> -->
+        </div>
+        <div id="loginMessage"></div> 
+    </div>
+
+    <div class="container" id="signup" style="display: none;">
+        <h2>Sign Up</h2>
+        <form id="signupForm" action="#" method="post">
+            <input type="text" name="fullname" placeholder="Full Name" required autocomplete="off">
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="links">
+            <a href="#login">Login</a>
+            <a href="#forgot">Forgot Password</a>
+        </div>
+    </div>
+    <div class="container" id="forgot" style="display: none;">
+        <h2>Forgot Password</h2>
+        <form id="forgotForm" action="#" method="post">
+            <button type="submit">Reset Password</button>
+        </form>
+
+        <div class="links">
+            <a href="#login">Login</a>
+            <a href="/signup">Sign Up</a>
+        </div>
+    </div>
+    <script>
+        function togglePassword() {
+
+            const passwordInput = document.getElementById("passwordInput");
+            const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+            passwordInput.setAttribute("type", type);
+        }        
+    </script>
+</body>
+
+</html>

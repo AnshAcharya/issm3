@@ -1,0 +1,185 @@
+:root {
+    --color1: #5C415D;
+    --color2: #F6F7EB;
+    --color3: #F391A0;    
+    --color4: #393E41;
+}
+
+.main {
+    display: block;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.main div.upload {
+    background: var(--color2);
+    display: flex;
+    height: 60vh;
+    width: 75%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 2px;
+    border-radius: 8px;
+    color: var(--color1);
+}
+
+.main div.text {
+    background: var(--color2);
+    height: 10vh;
+    width: 75%;
+    border-radius: 8px;
+    
+    color: var(--color1);
+    text-align: center;
+    margin: auto;
+    margin-bottom: 2%;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+input[type="file"] {
+    border: none;
+    background-color: transparent;
+    padding: 15px 25px;
+    border-radius: 8px;
+    outline: none;
+    color: var(--color1);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    width: fit-content;
+}
+
+.upload input[type="file"]:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.upload input[type="file"]:focus {
+    box-shadow: 0 0 10px blue;
+}
+
+.upload input[type="submit"] {
+    background-color: #301d51;
+    color: var(--color1);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    ;
+}
+
+.upload input[type="submit"]:hover {
+    background-color: rgb(54, 54, 59);
+}
+
+input[type="submit"] {
+    background-color: var(--color2);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: 1px solid var(--color1);
+}
+
+input[type="submit"]:hover {
+    background-color: var(--color3);
+    color:white;
+}
+
+.transitionSubmit {
+    margin: auto;
+    background: var(--color2);
+    display: flex;
+    margin-top: 2%;
+    border-radius: 8px;
+    width: 75%;
+}
+
+.transitionSubmit div.transition {
+    color: var(--color1);
+    margin-left: 25%;
+}
+
+.transitionSubmit input[type="submit"] {
+    margin-left: 25%;
+    margin: auto;
+}
+
+.form {
+    display: flex;
+    background-color: var(--color2);
+    height:50vh;
+    width:75%;
+    border-radius: 1rem;
+}
+
+.form form{
+    margin:auto;
+}
+
+#audio {
+    margin-top: 20px;
+    text-align: center;
+    padding: 5%;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+select {
+    width: 50%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+audio {
+    width: 50%;
+    margin-top: 10px;
+}
+
+#upload-btn{
+    text-align: center;
+}
+
+body{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color1);
+}
+
+#drop-area {
+    border: 2px dashed var(--color1);
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#drop-area.drag-over {
+    border-color: #4CAF50;
+}
+
+section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+  }
+
+  img {
+      max-width: 20%;
+      height: auto;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px var(--color1);
+  }

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TeamLAB Project</title>
+  <link rel="stylesheet" href="./static/homestyle.css">
+  <style>
+      
+  </style>
+
+
+</head>
+
+<body">
+  
+  <div class="main">
+    <div class="text">
+      <h1>Welcome to My Homepage</h1>
+      <p>{{ user_name }}</p>
+      <br>
+      <!-- <p>This is a project created by TeamLAB.</p> -->
+    </div>
+    <center>
+      <div class="form">
+        <form action="/home" method="post" enctype="multipart/form-data">
+          <table>
+          <div id="audio">
+              <label for="audioSelect">Select an audio file:</label>
+      
+              <select id="audioSelect" onchange="changeAudio()">
+                  <option value="static/CantinaBand60.wav">Audio 1 (CantinaBand60)</option>
+                  <option value="static/BabyElephantWalk60.wav">Audio 2 (BabyElephantWalk60)</option>
+                  <option value="static/StarWars60.wav">Audio 3 (StarWars60)</option>
+              </select>
+      
+              <audio controls id="audioPlayer">
+                  <!-- The selected audio source will be dynamically set here -->
+                  Your browser does not support the audio tag.
+              </audio>
+          </div>
+          <tr>
+            <td>Upload Images</td>
+            <td>:</td>
+            <td> 
+              <!-- <input type="file" name="images[]" id="imageUpload" accept="image/*" multiple> -->
+              <div id="drop-area" ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
+                  <p>Drag and drop images here</p>
+                  <input type="file" id="imageUpload" name="images[]" accept="image/*" multiple onchange="handleFiles(this.files)">
+              </div>
+            </td>
+          </tr>
+          
+          <tr>
+            <td></td>
+            <td></td>
+            <div id="upload-btn">
+
+              <td><input style="margin-top: 20px;" type="submit" onclick="preview()"  value="Upload"></td>
+            </div>
+          </tr>
+        </table>
+      </form>
+    </div>
+    </center>
+
+
+    <div class="transitionSubmit">
+      <!-- <div class="transition">
+        <h2>Choose transition</h2>
+        <ul>
+          <li><input type="radio" name="r">None</li>
+          <li><input type="radio" name="r">Morph</li>
+          <li><input type="radio" name="r">Fade</li>
+          <li><input type="radio" name="r">Push</li>
+          <li><input type="radio" name="r">Wipe</li>
+        </ul>
+      </div> -->
+      <!-- <input type="submit" value="Create a Video" onclick="preview()"> -->
+    </div>
+  </div>
+  <!-- <script src="home.js"></script> -->
+  <script>
+      function handleDragOver(event) {
+          event.preventDefault();
+          document.getElementById('drop-area').classList.add('drag-over');
+      }
+
+      function handleDrop(event) {
+          event.preventDefault();
+          document.getElementById('drop-area').classList.remove('drag-over');
+          handleFiles(event.dataTransfer.files);
+      }
+
+      function handleFiles(files) {
+          const inputElement = document.getElementById('imageUpload');
+          inputElement.files = files;
+          
+          for (const file of files) {
+              if (file.type.startsWith('image/')) {
+                  // Read the file and perform necessary actions (e.g., display, upload)
+                  const reader = new FileReader();
+                  reader.onload = function (e) {
+                      const imageElement = document.createElement('img');
+                      imageElement.src = e.target.result;
+                      document.body.appendChild(imageElement);
+                  };
+                  reader.readAsDataURL(file);
+              }
+          }
+      }
+  </script>
+  <script>
+    function changeAudio() {
+      var select = document.getElementById("audioSelect");
+      var audioPlayer = document.getElementById("audioPlayer");
+  
+      // Get the selected option's value
+      var selectedAudio = select.options[select.selectedIndex].value;
+  
+      // Set the source of the audio player to the selected audio file
+      audioPlayer.src = selectedAudio;
+    }
+</script>
+
+</body>
+
+</html>

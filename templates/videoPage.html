@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Video</title>
+    <link rel="stylesheet" href="../static/preview.css">
+    <style>
+    </style>
+</head>
+
+<body>
+    <h1>Video preview</h1>
+    <section>
+        <!-- Display images in a loop -->
+        {% for image in images %}
+        <img src="data:image/jpeg;base64,{{ image }}" alt="Image">
+        {% endfor %}
+    </section>
+    <br>
+    <center>
+        <button id="createVid">Create Video</button>
+        <!-- Add the video tag -->
+    </center>
+    <center>
+        <video id="videoPreview" controls style="margin-top: 20px;">
+            <source src="{{ video_path }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </center>
+</body>
+
+</html>
