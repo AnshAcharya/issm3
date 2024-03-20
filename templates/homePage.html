@@ -24,7 +24,7 @@
     </div>
     <center>
       <div class="form">
-        <form action="/home" method="post" enctype="multipart/form-data">
+        <form action="/home" method="post" enctype="multipart/form-data" >
           <table>
           <div id="audio">
               <label for="audioSelect">Select an audio file:</label>
@@ -40,12 +40,12 @@
                   Your browser does not support the audio tag.
               </audio>
           </div>
-          <tr>
+          <tr style="padding-bottom: 1%;">
             <td>Upload Images</td>
             <td>:</td>
             <td> 
               <!-- <input type="file" name="images[]" id="imageUpload" accept="image/*" multiple> -->
-              <div id="drop-area" ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
+              <div id="drop-area" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" style="padding-top:2.5%; padding-bottom: 2.5%;">
                   <p>Drag and drop images here</p>
                   <input type="file" id="imageUpload" name="images[]" accept="image/*" multiple onchange="handleFiles(this.files)">
               </div>
@@ -66,7 +66,7 @@
     </center>
 
 
-    <div class="transitionSubmit">
+    <div class="transitionSubmit" style="margin-top: 100px;">
       <!-- <div class="transition">
         <h2>Choose transition</h2>
         <ul>

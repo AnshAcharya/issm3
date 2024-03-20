@@ -20,15 +20,22 @@
     </section>
     <br>
     <center>
-        <button id="createVid">Create Video</button>
+        <button id="createVid" onclick="showVideo()">Create Video</button>
         <!-- Add the video tag -->
     </center>
     <center>
-        <video id="videoPreview" controls style="margin-top: 20px;">
-            <source src="{{ video_path }}" type="video/mp4">
+        <video id="videoPreview" controls style="margin-top: 20px;" src="" type="video/mp4">
+            <!-- <source src="" type="video/mp4"> -->
             Your browser does not support the video tag.
         </video>
     </center>
+    <script>
+        function showVideo()
+        {
+            let vid = document.getElementById("videoPreview")
+            vid.src = "../static/output_video.mp4";
+        }
+    </script>
 </body>
 
 </html>
