@@ -15,7 +15,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager
 from sqlalchemy import create_engine, text
-DATABASE_URL="cockroachdb://likhitbhogadi:X34a6UmwvQJT8pr5f8wcdQ@crawly-ewe-9007.8nk.gcp-asia-southeast1.cockroachlabs.cloud:26257/issproject?sslmode=verify-full"
+
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -39,7 +39,7 @@ class User(db.Model):
     password = db.Column(db.String(1000), nullable=False)
 
 # Establish connection and execute SQL query
-engine = create_engine(DATABASE_URL)
+engine = create_engine(os.environ["DATABASE_URL"])
 conn = engine.connect()
 res = conn.execute(text("SELECT now()")).fetchall()
 print(res)
